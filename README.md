@@ -25,6 +25,6 @@ Fields in Collection:
 - Text Field for Context Retrieval: `page_content`
 
 Notes:
-- The text chunks were preprocessed from full tweets and stored in the `page_content` field.
+- The text chunks were preprocessed from full tweets using python script and stored in the `page_content` field.
 - Vectors were generated using Langflow's OpenAI Embedding node.
 - Vector search and retrieval are performed using AstraDB Hybrid Search via Langflow RAG workflow.
