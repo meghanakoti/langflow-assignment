@@ -1,30 +1,64 @@
-AstraDB Schema Definition
+# GenAI Twitter Support Analyzer (Langflow + AstraDB)
 
-Database:
-twitter_analysis
+This project implements a GenAI-powered data pipeline using **Langflow** and **AstraDB** to analyze customer support tweets. The system uses vector search with OpenAI embeddings and Retrieval-Augmented Generation (RAG) to answer user queries.
 
-Keyspace:
-customer_tweets_chunk
+---
 
-Collection:
-customer_tweets
+##  Project Goals
 
-Fields in Collection:
+- Ingest unstructured tweet data
+- Vectorize using OpenAI embeddings using langflow
+- Store in AstraDB vector database
+- Query with natural language using Langflow's RAG workflow
 
-| Field Name     | Type           | Description                                                              |
-|----------------|----------------|--------------------------------------------------------------------------|
-| `_id`          | `string`       | Auto-generated unique identifier for each record                         |
-| `page_content` | `string`       | Tweet chunk text (used for vector search and retrieval)                  |
-| `$vector`      | `vector[1536]` | Vector embedding generated from OpenAI for each `page_content` text     |
-| `metadata`     | `object`       | Original tweet fields (tweet_id, author_id, created_at, etc.) as JSON    |
+---
 
- Vector Configuration:
-- Dimensions: 1536 (from OpenAI `text-embedding-ada-002` model)
-- Similarity Metric: Cosine
-- Vector Field: `$vector`
-- Text Field for Context Retrieval: `page_content`
+##  Files Included
 
-Notes:
-- The text chunks were preprocessed from full tweets using python script and stored in the `page_content` field.
-- Vectors were generated using Langflow's OpenAI Embedding node.
-- Vector search and retrieval are performed using AstraDB Hybrid Search via Langflow RAG workflow.
+| File | Description |
+|------|-------------|
+| `chunked_tweets2.csv` | Preprocessed tweet chunks for ingestion |
+| `preprocessing.py` | Python script used to chunk the tweet data |
+| `tweets_retrieval_workflow.json` | Exported Langflow workflow for vectorization (vectorization pipeline) |
+| `tweets_retrieval_workflow.json` | Exported Langflow workflow for query retrieval (RAG pipeline) |
+
+| `astra_schema.md` | Notes on AstraDB schema setup (keyspace, collection, etc.) |
+
+---
+
+## Dataset Used
+
+**Customer Support on Twitter**  
+https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter
+
+---
+
+## Running the Langflow Workflow
+
+> API Keys are **not included** in the `.json` file.  
+> You’ll need to plug in your **OpenAI API key** and **Astra DB token** manually inside Langflow UI.
+
+1. Import the JSON into Langflow.
+2. Paste your API keys in the OpenAI and AstraDB nodes.
+3. Run the workflow using the Playground.
+
+---
+
+## Sample Queries
+
+- What are customers complaining about?
+- Are there any billing or payment issues?
+- What problems are users facing with their apps?
+- How do support agents respond?
+
+---
+
+## Setup Notes
+
+- Developed and tested using [Langflow](https://docs.langflow.org/)
+- AstraDB collection: `customer_tweets`  
+  Keyspace: `customer_tweets_chunk`
+- OpenAI model used: `text-embedding-ada-002`, `gpt-3.5-turbo`
+
+--- 
+
