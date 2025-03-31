@@ -18,7 +18,7 @@ This project implements a GenAI-powered data pipeline using **Langflow** and **A
 | File | Description |
 |------|-------------|
 | `chunked_tweets2.csv` | Preprocessed tweet chunks for ingestion |
-| `preprocessing.py` | Python script used to chunk the tweet data |
+| `dataingestion.py` | Python script used to chunk the tweet data |
 | `tweets_retrieval_workflow.json` | Exported Langflow workflow for vectorization (vectorization pipeline) |
 | `tweets_retrieval_workflow.json` | Exported Langflow workflow for query retrieval (RAG pipeline) |
 
