@@ -47,9 +47,9 @@ https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter
 ## Sample Queries
 
 - What are customers complaining about?
-- Are there any billing or payment issues?
 - What problems are users facing with their apps?
-- How do support agents respond?
+- How do companies respond to customer concerns?
+- What kind of issues are people reporting with SprintCare?
 
 ---
 
