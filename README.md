@@ -4,7 +4,7 @@ This project implements a GenAI-powered data pipeline using **Langflow** and **A
 
 ---
 
-##  Project Goals
+##  Assignement Goals
 
 - Ingest unstructured tweet data
 - Vectorize using OpenAI embeddings using langflow
