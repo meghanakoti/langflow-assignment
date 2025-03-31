@@ -1,6 +1,6 @@
 # GenAI Twitter Support Analyzer (Langflow + AstraDB)
 
-This project implements a GenAI-powered data pipeline using **Langflow** and **AstraDB** to analyze customer support tweets. The system uses vector search with OpenAI embeddings and Retrieval-Augmented Generation (RAG) to answer user queries.
+This assignment implements a GenAI-powered data pipeline using **Langflow** and **AstraDB** to analyze customer support tweets. The system uses vector search with OpenAI embeddings and Retrieval-Augmented Generation (RAG) to answer user queries.
 
 ---
 
