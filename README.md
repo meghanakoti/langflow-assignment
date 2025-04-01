@@ -4,7 +4,7 @@ This assignment implements a GenAI-powered data pipeline using **Langflow** and 
 
 ---
 
-##  Assignement Goals
+##  Assignment Goals
 
 - Ingest unstructured tweet data
 - Vectorize using OpenAI embeddings using langflow
@@ -19,12 +19,19 @@ This assignment implements a GenAI-powered data pipeline using **Langflow** and 
 |------|-------------|
 | `chunked_tweets2.csv` | Preprocessed tweet chunks for ingestion |
 | `dataingestion.py` | Python script used to chunk the tweet data |
-| `tweets_retrieval_workflow.json` | Exported Langflow workflow for vectorization (vectorization pipeline) |
+| `vector_workflow.json` | Exported Langflow workflow for vectorization (vectorization pipeline) |
 | `tweets_retrieval_workflow.json` | Exported Langflow workflow for query retrieval (RAG pipeline) |
 
 | `astra_schema.md` | Notes on AstraDB schema setup (keyspace, collection, etc.) |
 
 ---
+## How to Run
+
+1. The embedding (vectorization) step is handled automatically inside vector -storage Langflow using the OpenAI Embeddings node, once the chunked text is ingested.
+2. Load tweets_retrieval_workflow.json into Langflow via the Import option
+3. Upload chunked_tweets2.csv inside the File node
+4. Set your OpenAI and AstraDB credentials
+5. Start asking questions in the Chat Input node.
 
 ## Dataset Used
 
